@@ -52,6 +52,17 @@ public class SecurityConfig {
                         .pathMatchers("/api/v1/subscription-plans/**").permitAll()
                         // Webhooks (public but should be secured with webhook secrets)
                         .pathMatchers("/api/v1/webhooks/**").permitAll()
+                        // Course service protected endpoints (require authentication)
+                        .pathMatchers("/api/courses/**").permitAll()
+                        .pathMatchers("/api/modules/**").permitAll()
+                        .pathMatchers("/api/enrollments/**").permitAll()
+                        .pathMatchers("/api/quizzes/**").permitAll()
+                        .pathMatchers("/api/progress/**").permitAll()
+                        .pathMatchers("/api/quiz-answers/**").permitAll()
+                        .pathMatchers("/api/quiz-questions/**").permitAll()
+                        .pathMatchers("/api/quiz-results/**").permitAll()
+
+
                         // All other endpoints require authentication
                         .anyExchange().authenticated()
                 )

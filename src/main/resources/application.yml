@@ -31,7 +31,7 @@ spring:
             - id: course-service
               uri: ${COURSE_SERVICE_URL:http://${COURSE_SERVICE_HOST:localhost}:${COURSE_SERVICE_PORT:8082}}
               predicates:
-                - Path=/api/courses/**
+              - Path=/api/courses/**, /api/modules/**, /api/enrollments/**, /api/progress/**, /api/quizzes/**, /api/quiz-questions/**, /api/quiz-answers/**, /api/quiz-results/**
 
             # Notification Service Routes
             - id: notification-service
