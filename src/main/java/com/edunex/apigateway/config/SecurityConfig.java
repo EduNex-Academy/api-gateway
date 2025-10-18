@@ -21,7 +21,7 @@ public class SecurityConfig {
     @Bean
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration config = new CorsConfiguration();
-        config.setAllowedOrigins(Collections.singletonList("http://localhost:3000"));
+        config.setAllowedOrigins(Arrays.asList("http://localhost:3000", "https://edunex-one.vercel.app"));
         config.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "DELETE", "OPTIONS"));
         config.setAllowedHeaders(Collections.singletonList("*"));
         config.setAllowCredentials(true);

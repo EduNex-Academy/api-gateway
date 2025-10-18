@@ -8,11 +8,14 @@ RUN mvn clean package -DskipTests
 # Run stage
 FROM openjdk:21-slim
 
+# Install curl for health checks
+RUN apt-get update && apt-get install -y curl && rm -rf /var/lib/apt/lists/*
+
 # Copy the built JAR file from the build stage
 COPY --from=build /app/target/*.jar app.jar
 
-# Expose the port the gateway runs on (as defined in your application.yml)
+# Expose the port
 EXPOSE 8090
 
-# Set the command to run the application when the container starts
+# Run the application
 ENTRYPOINT ["java","-jar","/app.jar"]
